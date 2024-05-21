@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+   
+    background-color: #f5f5f5;
+}
+
+.navbar {
+           height: 70px;
+        
+           background-color: #620b0b;;
+           
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            float: left;
+        }
+
+        .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 19px;
+        }
+
+        .navbar ul li a:hover {
+            border-bottom: 2px solid rgb(255, 159, 159);
+        }
+
+ .container {
+    margin-top: 100px;
+    margin-left: 550px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+} 
+
+ #show-password {
+    margin-top: 5px;
+}
+
+
+
+.dropdown {
+            position: relative;
+            margin-bottom: 15px;
+            
+        }
+
+        /* Style the dropdown button */
+        #user-type {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none; /* Remove default arrow for WebKit browsers */
+            cursor: pointer;
+        }
+
+       
+        #user-type option {
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
+        
+        #user-type option:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        
+        .dropdown::after {
+            content: '\25BC'; 
+            position: absolute;
+            top: calc(50% - 5px);
+            right: 10px;
+            color: rgb(0, 0, 0);
+        }
+
+        @media screen and (min-width: 3in) and (max-width: 6in) {
+        .container {
+            margin-left: 10px; 
+            max-width: 300px; 
+        }
+        .container {
+  
+           align-items: center;
+           justify-content: center;
+}
+
+        h1 {
+            font-size: 24px; 
+        }
+
+        .form-group label {
+            font-size: 14px; 
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            font-size: 14px; 
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px; 
+            font-size: 14px;
+        }
+    }
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="login.html">Placed Orders</a></li>
+            <li><a href="login.html">Menu</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+  <div class="container">
+        <h1>Food Delivery App</h1>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="dropdown">
+                <!-- Dropdown button -->
+                <select id="user-type" required>
+                    <option value="">Select User Type</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Customer">Customer</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="checkbox" id="show-password">
+                <label for="show-password">Show Password</label>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account?&nbsp;<a href="login.html">Log in</a></p>
+    </div> 
+
+    <script>
+  document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    
+    var userType = document.getElementById("user-type").value;
+    
+    if (userType === "Restaurant") {
+        window.location.href = "Adddishes.html"; 
+    } else {
+        window.location.href = "Customer.html"; 
+    }
+});
+
+
+    
+
+    </script>
+</body>
+</html>

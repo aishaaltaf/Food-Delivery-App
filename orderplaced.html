@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Order Tracking</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .navbar {
+  height: 70px;
+  background-color: #620b0b;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.navbar ul li {
+  float: left;
+}
+
+.navbar ul li a {
+  margin-top: 15px;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 19px;
+}
+
+.navbar ul li a:hover {
+  border-bottom: 2px solid rgb(255, 159, 159);
+}
+
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  h1 {
+    text-align: center;
+  }
+  .order-list {
+    list-style: none;
+    padding: 0;
+  }
+  .order {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  .order h2 {
+    margin-top: 0;
+  }
+  .order .status {
+    font-weight: bold;
+  }
+
+  @media screen and (min-width: 3in) and (max-width: 6in) {
+    
+    .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 4px 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 13px;
+        }
+    
+    .container {
+      max-width: 300px; 
+    }
+
+    h1 {
+      font-size: 24px; 
+    }
+
+    .order {
+      padding: 8px; 
+    }
+
+    .order h2 {
+      font-size: 18px; 
+    }
+
+    .order p {
+      font-size: 14px; 
+    }
+  }
+</style>
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Restaurant Dashboard</a></li>
+            <li><a href="orderplaced.html">Placed Orders</a></li>
+            <li><a href="Adddishes.html">Add Dishes</a></li>
+            
+        </ul>
+    </nav>
+    
+<div class="container">
+  <h1>Placed Orders</h1>
+  <ul class="order-list" id="orderList">
+   
+  </ul>
+</div>
+<script>
+  
+  var orders = [
+    { orderNumber: '123', items: ['Burger', 'Fries', 'Cola next'], status: 'Preparing' },
+    { orderNumber: '124', items: ['Pizza', 'Salad', 'Water'], status: 'Ready' },
+    { orderNumber: '125', items: ['Pasta', 'Garlic Bread', 'Soda'], status: 'Waiting for pickup' }
+  ];
+
+  
+  function renderOrders() {
+    var orderList = document.getElementById('orderList');
+    orderList.innerHTML = '';
+    orders.forEach(function(order) {
+      var orderElement = document.createElement('li');
+      orderElement.classList.add('order');
+      orderElement.innerHTML = `
+        <h2>Order #${order.orderNumber}</h2>
+        <p><strong>Items:</strong> ${order.items.join(', ')}</p>
+        <p><strong>Status:</strong> <span class="status">${order.status}</span></p>
+      `;
+      orderList.appendChild(orderElement);
+    });
+  }
+
+ 
+  renderOrders();
+</script>
+</body>
+</html>

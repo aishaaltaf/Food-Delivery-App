@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Login</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+   
+    background-color: #f5f5f5;
+}
+
+.navbar {
+           height: 70px;
+        
+           background-color: #620b0b;;
+           
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            float: left;
+        }
+
+        .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 19px;
+        }
+
+        .navbar ul li a:hover {
+            border-bottom: 2px solid rgb(255, 159, 159);
+        }
+
+ .container {
+    margin-top: 100px;
+    margin-left: 550px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+} 
+
+ #show-password {
+    margin-top: 5px;
+}
+
+
+@media only screen and (min-width: 3in) and (max-width: 6in) {
+       
+
+        
+
+        .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 4px 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 13px;
+        }
+        h1 {
+            font-size: 24px; 
+        }
+
+        .form-group label {
+            font-size: 14px; 
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            font-size: 14px; 
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px; 
+            font-size: 14px; 
+        }
+    }
+
+    @media only screen and (max-width: 14in) {
+    .container {
+        margin-top: 100px;
+        margin-left: calc((100% - 400px) / 2); /* Center horizontally */
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+    }
+
+   
+}
+
+    
+
+    </style>
+</head>
+<body>
+
+
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="login.html">Placed Orders</a></li>
+            <li><a href="signup.html">Menu</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+  <div class="container">
+        <h1>Food Delivery App</h1>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="checkbox" id="show-password">
+                <label for="show-password">Show Password</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? &nbsp;<a href="signup.html">Sign Up</a></p>
+    </div> 
+
+    <script >
+
+
+
+
+
+const loginForm = document.getElementById('login-form');
+
+loginForm.addEventListener('submit', function(event) {
+  event.preventDefault(); 
+  
+  
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  
+  
+  if (username === 'admin' && password === 'admin123') {
+    
+    window.location.href = "admin.html";
+  } else if(username==="Restaurant") {
+  
+    window.location.href = "Adddishes.html";
+  } 
+  else{
+    window.location.href = "Customer.html";
+  }
+});
+
+
+    </script>
+</body>
+</html>

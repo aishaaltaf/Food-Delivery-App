@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Dish</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .image {
+            position: relative;
+            width: 100%;
+            height: 750px;
+            background-image: url("img1.jpg");
+            background-size: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 750px;
+            background-color: rgba(51, 51, 51, 0.5); /* Adjust the alpha value (0.5) to control transparency */
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 65px;
+            font-weight: bold;
+            
+        }
+
+        .order-button {
+            padding: 12px 24px;
+            background-color: #820000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .order-button:hover {
+            background-color: #b50808;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            float: left;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+        .navbar ul li a:hover {
+            border-bottom: 2px solid red;
+        }
+
+
+
+        @media only screen and (max-width: 6in) and (min-width: 3in) {
+
+            .image {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    background-image: url("img1.jpg"); /* Adjusted path */
+    background-size: cover;
+}
+        
+            .navbar ul li a {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 13px;
+        }
+        
+            .image {
+            position: relative;
+            width: 100%;
+            height: 750px;
+            background-image: url("img1.jpg");
+            background-size: cover;
+        }
+            .text {
+            font-size: 40px;
+        }
+
+        .order-button {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="image">
+        <div class="overlay">
+            
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="login.html">Placed Orders</a></li>
+                    <li><a href="signup.html">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <div class="text">Great Food, <br> Straight to You  <br> <a href="signup.html"><button class="order-button">Order Now</button></a></div>
+           
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

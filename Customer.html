@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant List</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .navbar {
+  height: 70px;
+  background-color: #620b0b;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.navbar ul li {
+  float: left;
+}
+
+.navbar ul li a {
+  margin-top: 15px;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 19px;
+}
+
+.navbar ul li a:hover {
+  border-bottom: 2px solid rgb(255, 159, 159);
+}
+
+
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .restaurant-list {
+    list-style: none;
+    padding: 0;
+  }
+  .restaurant {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  .restaurant:hover {
+    background-color: #f0f0f0;
+  }
+  .dish-list {
+    list-style: none;
+    padding: 0;
+  }
+  .dish {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  .dish.selected {
+    background-color: #aaf;
+  }
+
+  .place{
+    padding: 10px;
+    background-color: #620b0b;
+    color: #fff;
+    border-radius: 10px;
+
+  }
+
+  .place:hover{
+    background-color: #f04545;
+  }
+
+
+  @media screen and (min-width: 3in) and (max-width: 6in) {
+    .container {
+      padding: 10px;
+    }
+
+    .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 4px 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 13px;
+        }
+
+    .restaurant {
+      padding: 8px;
+    }
+
+    .dish {
+      padding: 4px;
+    }
+
+    .place {
+      padding: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="Customer.html">Orders</a></li>
+        <li><a href="##">Menu</a></li>
+    </ul>
+</nav>
+
+
+<div class="container">
+  <h1>Restaurant List</h1>
+  <ul class="restaurant-list" id="restaurantList">
+    <li class="restaurant" onclick="showDishes('restaurant1')">Restaurant 1</li>
+    <li class="restaurant" onclick="showDishes('restaurant2')">Restaurant 2</li>
+    <li class="restaurant" onclick="showDishes('restaurant3')">Restaurant 3</li>
+  </ul>
+  <div id="dishesContainer" style="display: none;">
+    <h2 id="restaurantName"></h2>
+    <ul class="dish-list" id="dishList"></ul>
+    <button class="place" onclick="placeOrder()">Place Order</button>
+  </div>
+</div>
+<script>
+  var selectedDish = null;
+
+  
+  var restaurantData = {
+    restaurant1: {
+      name: 'Restaurant 1',
+      dishes: ['Dish 1', 'Dish 2', 'Dish 3']
+    },
+    restaurant2: {
+      name: 'Restaurant 2',
+      dishes: ['Dish A', 'Dish B', 'Dish C']
+    },
+    restaurant3: {
+      name: 'Restaurant 3',
+      dishes: ['Spaghetti', 'Pizza', 'Salad']
+    }
+  };
+
+ 
+  function showDishes(restaurantId) {
+    var restaurant = restaurantData[restaurantId];
+    document.getElementById('restaurantName').textContent = restaurant.name;
+    var dishList = document.getElementById('dishList');
+    dishList.innerHTML = '';
+    restaurant.dishes.forEach(function(dish) {
+      var li = document.createElement('li');
+      li.textContent = dish;
+      li.classList.add('dish');
+      li.addEventListener('click', function() {
+        selectDish(this);
+      });
+      dishList.appendChild(li);
+    });
+    document.getElementById('dishesContainer').style.display = 'block';
+  }
+
+  // Function to select a dish
+  function selectDish(dishElement) {
+    if (selectedDish !== null) {
+      selectedDish.classList.remove('selected');
+    }
+    selectedDish = dishElement;
+    selectedDish.classList.add('selected');
+  }
+
+  
+  function placeOrder() {
+    if (selectedDish === null) {
+      alert('Please select a dish.');
+    } else {
+      var dishName = selectedDish.textContent;
+      alert('Order placed successfully! You ordered: ' + dishName);
+      // Reset selected dish
+      selectedDish.classList.remove('selected');
+      selectedDish = null;
+    }
+  }
+</script>
+</body>
+</html>
+

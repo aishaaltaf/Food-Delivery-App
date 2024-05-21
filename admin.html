@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+           body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+   
+    background-color: #f5f5f5;
+}
+
+.navbar {
+           height: 70px;
+        
+           background-color: #620b0b;;
+           
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            float: left;
+        }
+
+        .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 19px;
+        }
+
+        .navbar ul li a:hover {
+            border-bottom: 2px solid rgb(255, 159, 159);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .form-wrap {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #signup-container {
+            display: none;
+        }
+
+        #view-container {
+            display: block;
+        }
+
+        #users-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        #users-list div {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-btn.remove {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .action-btn.suspend {
+            background-color: #ffc107;
+            color: #000;
+        }
+
+        @media screen and (min-width: 3in) and (max-width: 6in) {
+            .container {
+                padding: 10px;
+            }
+
+            .navbar ul li a {
+            margin-top: 15px;
+            display: block;
+            color: white;
+            padding: 14px 4px 14px 16px;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 13px;
+        }
+            .form-wrap {
+                padding: 15px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            select {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px;
+            }
+
+            #users-list div {
+                padding: 8px;
+            }
+
+            .action-btn {
+                padding: 6px 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+            <li><a href="admin.html">User Managment</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="form-wrap" id="view-container">
+            <h2>User Management</h2>
+            <div id="users-list">
+                <div>
+                    <span>John Doe (Customer)</span>
+                    <div class="user-actions">
+                        <button class="action-btn remove">Remove</button>
+                        <button class="action-btn suspend">Suspend</button>
+                    </div>
+                </div>
+                <div>
+                    <span>Jane Smith (Restaurant)</span>
+                    <div class="user-actions">
+                        <button class="action-btn remove">Remove</button>
+                        <button class="action-btn suspend">Suspend</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            const userActions = document.querySelectorAll('.user-actions');
+            
+            userActions.forEach(function(actions) {
+                const removeBtn = actions.querySelector('.remove');
+                const suspendBtn = actions.querySelector('.suspend');
+
+                removeBtn.addEventListener('click', function() {
+                  
+                    actions.parentElement.remove();
+                });
+
+                suspendBtn.addEventListener('click', function() {
+                    
+                    actions.parentElement.classList.toggle('suspended');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
